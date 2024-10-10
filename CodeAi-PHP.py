@@ -1,6 +1,5 @@
 # coding=utf-8
 '''
-xxx实验室
 by：Segador
 '''
 import subprocess
