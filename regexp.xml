@@ -1,0 +1,65 @@
+<root>
+    <phpid vultype='EXEC'>
+        <function>
+            <rule name='exec'>
+                <regmatch>
+                    <regexp>exec\(|shell_exec\(|system\(|passthru\(|popen\(|proc_open\(|proc_terminate\(|eval\(|assert\(|create_function\(|call_user_func\(|call_user_func_array\(|preg_replace\(\s*\"/\*.*?\*/\"</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='SQLi'>
+        <function>
+            <rule name='sql_query'>
+                <regmatch>
+                    <regexp>mysqli_query\(|PDO::query\(|PDOStatement::execute\(|mysql_query\(|pg_query\(|sqlite_query\(|execute\(|prepare\(|insert\(|update\(|delete\(|select\(|from\s+.*?\s+where</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='XSS'>
+        <function>
+            <rule name='XSS'>
+                <regmatch>
+                    <regexp>echo\s*\$|print\s*\$|htmlspecialchars\(|strip_tags\(|c:out|c:if|=%\></regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='File Upload'>
+        <function>
+            <rule name='File Upload'>
+                <regmatch>
+                    <regexp>move_uploaded_file\(|$_FILES\[\s*['"]?\w+['"]?\]\s*['"]?tmp_name['"]?\s*|fopen\(|fwrite\(|file_put_contents\(|file_get_contents\(|readfile\(|unlink\(|rmdir\(|fclose\(|fgets\(|fgetcsv\(|file_exists\(|is_uploaded_file\(|getimagesize\(|getimagesizefromstring\(|file\_get\_contents</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='Parameter Injection'>
+        <function>
+            <rule name='Parameter'>
+                <regmatch>
+                    <regexp>request\.\w+\(|$_REQUEST\[\s*['"]?\w+['"]?\]\s*|$_GET\[\s*['"]?\w+['"]?\]\s*|$_POST\[\s*['"]?\w+['"]?\]\s*</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='Information Disclosure'>
+        <function>
+            <rule name='Info-disclosure'>
+                <regmatch>
+                    <regexp>phpinfo\(|error_reporting\(|ini_set\(|ini_get\(|display_errors</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+    <phpid vultype='File Inclusion'>
+        <function>
+            <rule name='File Inclusion'>
+                <regmatch>
+                    <regexp>include\(|require\(|include_once\(|require_once\(|fopen\(|file_get_contents\(|readfile\(|file\_get\_contents</regexp>
+                </regmatch>
+            </rule>
+        </function>
+    </phpid>
+</root>
